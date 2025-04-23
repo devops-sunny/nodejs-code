@@ -1,0 +1,46 @@
+openapi: 3.0.3
+info:
+  title: MadeForPlanet API
+  description: API documentation for the MadeForPlanet backend
+  version: 1.0.0
+  contact:
+    name: Dhrupad Patel
+    email: dhrupad@example.com
+
+servers:
+  - url: http://localhost:5000
+    description: Local Development Server
+
+paths:
+  /api/users:
+    get:
+      summary: Get all users
+      tags:
+        - Users
+      responses:
+        '200':
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: 642fdddfc3e4aa65bbf41a7e
+        name:
+          type: string
+          example: John Doe
+        email:
+          type: string
+          example: johndoe@example.com
+        createdAt:
+          type: string
+          format: date-time
